@@ -1,0 +1,42 @@
+name: tts-app
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  # Core Python
+  - python=3.10
+
+  # Runtime essentials
+  - pip
+  - setuptools
+  - wheel
+
+  # Audio playback (playsound relies on system backends; kept as pip)
+  # Optional alternatives below (pydub/simpleaudio/ffmpeg or pygame)
+
+  # For reading .docx files
+  - python-docx
+
+  # Optional: useful CLI/utils
+  - tqdm
+  - pathlib
+
+  # If using pydub route for playback or conversions, include ffmpeg
+  # Comment out if not needed
+  - ffmpeg
+
+  # On Windows/macOS, these can help with audio backends if choosing alt players
+  # - portaudio
+
+  - pip:
+      # Text-to-speech
+      - gTTS==2.5.3
+
+      # Playback library used in your script
+      - playsound==1.2.2
+
+      # Optional alternatives (uncomment any you prefer and adjust your code):
+      # - pydub==0.25.1
+      # - simpleaudio==1.0.4
+      # - pygame==2.6.0
